@@ -2,7 +2,15 @@ def time_planner(a, b, duration):
     new_a = find_range(a)
     new_b = find_range(b)
 
-    
+    for i in new_a:
+        for j in i:
+            for k in new_b:
+                if j in k:
+                    time = j + duration
+                    if time in (i and k):
+                        return [j, time]
+
+    return []
 
 
 def find_range(arr):
@@ -15,4 +23,6 @@ def find_range(arr):
     return expand_arr
 
 
-time_planner([[10, 50], [60, 120], [140, 210]], [[0, 15], [60, 70]], 8)
+print(time_planner([[10, 50], [60, 120], [140, 210]], [[0, 15], [60, 70]], 8))
+print(time_planner([[10, 50], [60, 120], [140, 210]], [[0, 15], [60, 72]], 12))
+print(time_planner([[10, 50], [60, 120], [140, 210]], [[0, 15], [60, 70]], 12))
